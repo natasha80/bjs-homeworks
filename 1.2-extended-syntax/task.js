@@ -4,7 +4,9 @@ function getResult(a,b,c){
     let x = [];
     let D = b**2 - 4 * a * c;
 
-    if (D > 0) {
+    if (D == 0) {
+      x.push((-b) / (2 * a));
+    } else if (D > 0) {
       x.push((-b + Math.sqrt(D)) / (2 * a));
       x.push((-b - Math.sqrt(D)) / (2 * a));
     }
