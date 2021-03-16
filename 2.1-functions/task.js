@@ -43,7 +43,7 @@ function getAverageScore(data) {
        averageScore[key] = getAverageMark(data[key]);
     }
 
-    averageScore.average = getAverageMark(data);
+    averageScore.average = Object.values(averageScore);
     return averageScore;
 }
 
