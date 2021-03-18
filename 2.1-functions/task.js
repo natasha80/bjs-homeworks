@@ -35,15 +35,13 @@ showSolutionsMessage(7, 20, -3);
 // Задача 2
 function getAverageScore(data) {
     let averageScore = {};
-    averageScore.average = {
-        average: [2, 4, 5, 5]
-    }
 
     for (let key in data) {
        averageScore[key] = getAverageMark(data[key]);
     }
 
     averageScore.average = Object.values(averageScore);
+    
     return averageScore;
 }
 
@@ -58,5 +56,6 @@ function  getAverageMark(marks) {
     for (let i = 0; i < marks.length; i++) {
         sum += marks[i];
     }
+    Object.values(sum);
     return sum / marks.length;
 }
