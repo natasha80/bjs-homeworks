@@ -11,19 +11,18 @@ class PrintEditionItem {
     }
 
     fix() {
-      this.state = this.state * 1.5;
-      return this._state;
+      return this.state *= 1.5;
     }
 
     set state (number) {
       const state = number;
 
-      if (this.state < 0) {
-        this.state = 0;
-      } else if (this.state > 100) {
-        this.state = 100;
+      if (this.number < 0) {
+        this._state = 0;
+      } else if (this.number > 100) {
+        this._state = 100;
       } else {
-        this._state = state;
+        this._state = number;
       }
     }
 
@@ -45,7 +44,6 @@ class Magazine extends PrintEditionItem {
         super(name, releaseDate, pagesCount);
         this.type = "magazine"; 
     }
-  
 }
 
 class Book extends PrintEditionItem {
@@ -76,6 +74,8 @@ class DetectiveBook extends Book {
         this.type = "detective";
     }
 }
+
+
 const picknick = new FantasticBook("Аркадий и Борис Стругацкие", "Пикник на обочине", 1972, 168);
 
 console.log(picknick.author); //"Аркадий и Борис Стругацкие"
@@ -92,30 +92,30 @@ class Library {
         this.name = "";
         this.books = [];
     }
-}
 
-addBook(book) {
-    for(let i = 0; i < this.books.length; i++) {
+    addBook(book) {
+      for(let i = 0; i < this.books.length; i++) {
         if (this.state > 30)
-        return this.books[i];
-  }
-  return books;
-}
+        return this.book[i];
+      }
+      return book;
+    }
 
-findBookBy(type, value) {
-    for (let i = 0; i < this.books.length; i++) {
+    findBookBy(type, value) {
+      for (let i = 0; i < this.books.length; i++) {
         if (this.books[i][type] === value);
         return this.books[i];
+      }
+      return null;
     }
-    return null;
-}
 
-giveBookByName(bookName) {
-    for (let i = 0; i < this.books.length; i++) {
+    giveBookByName(bookName) {
+      for (let i = 0; i < this.books.length; i++) {
         if (this.books[i].name === bookName);
         return this.books.splice(i, 1);
+      }
+      return null;
     }
-    return null;
 }
 
 const library = new Library("Библиотека имени Ленина");
