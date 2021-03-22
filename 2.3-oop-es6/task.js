@@ -91,17 +91,12 @@ class Library {
     constructor(name, books) {
         this.name = "";
         this.books = [];
-        this.name = name;
-        this.books = books;
     }
 
     addBook(book) {
-      for(let i = 0; i < this.books.length; i++) {
-        if (this.state > 30)
-        return this.book[i];
+      if (this.state > 30)
+        this.books.push(book[i]);
       }
-      return book;
-    }
 
     findBookBy(type, value) {
       for (let i = 0; i < this.books.length; i++) {
