@@ -56,6 +56,5 @@ function  getAverageMark(marks) {
     for (let i = 0; i < marks.length; i++) {
         sum += marks[i];
     }
-    Object.values(sum);
     return sum / marks.length;
 }
