@@ -87,18 +87,19 @@ console.log(picknick.state); //15
 
 
 // Задача 2
-class Library {
+class Library {//библиотека(название, книги)
     constructor(name, books) {
-        this.name = "";
+        this.name = "name";
         this.books = [];
     }
 
-    addBook(book) {
-      if (this.state > 30)
+    addBook(book) {//добавить книгу(книга)
+      if (this.state > 30)//состояние книги
         this.books.push(book[i]);
       }
+      
 
-    findBookBy(type, value) {
+    findBookBy(type, value) {//найти книгу по(тип, значение)
       for (let i = 0; i < this.books.length; i++) {
         if (this.books[i][type] === value);
         return this.books[i];
@@ -106,7 +107,7 @@ class Library {
       return null;
     }
 
-    giveBookByName(bookName) {
+    giveBookByName(bookName) {//выдать книгу по названию(название книги)
       for (let i = 0; i < this.books.length; i++) {
         if (this.books[i].name === bookName);
         return this.books.splice(i, 1);
@@ -115,17 +116,53 @@ class Library {
     }
 }
 
-const library = new Library("Библиотека имени Ленина");
-console.log(library.name);
+const library = new Library("Библиотека имени Ленина");//Создали библиотеку
+console.log(library);
 
 library.addBook(new DetectiveBook("Артур Конан Дойл", "Полное собрание повестей и рассказов о Шерлоке Холмсе в одном томе", 2019, 1008));
+const collection = new DetectiveBook("Артур Конан Дойл", "Полное собрание повестей и рассказов о Шерлоке Холмсе в одном томе", 2019, 1008);
+console.log(collection.type);//добавили издание по типу
+
 library.addBook(new FantasticBook("Аркадий и Борис Стругацкие", "Пикник на обочине", 1972, 168));
+const outing = new FantasticBook("Аркадий и Борис Стругацкие", "Пикник на обочине", 1972, 168);
+console.log(outing.type);//добавили издание по типу
+
 library.addBook(new NovelBook("Герберт Уэллс", "Машина времени", 1895, 138));
+const car = new NovelBook("Герберт Уэллс", "Машина времени", 1895, 138);
+console.log(car.type);//добавили издание по типу
+
 library.addBook(new Magazine("Мурзилка", 1924, 60));
+const journal = new Magazine("Мурзилка", 1924, 60);
+console.log(journal.type);//добавили издание по типу
+
+library.findBookBy(new NovelBook(1919));
+const year = new NovelBook(1919);
+console.log(year.releaseDate);//искали книгу, изданную в 1919г.
+
+library.addBook(new NovelBook("Алексей Толстой", "Граф Калиостро", 1919, 510));
+const graph = new NovelBook("Алексей Толстой", "Граф Калиостро", 1919, 510);
+console.log(graph.releaseDate);//создали книгу 1919г.
 
 console.log(library.findBookBy("name", "Властелин колец")); //null
 console.log(library.findBookBy("releaseDate", 1924)); //"Мурзилка"
 
 console.log("Количество книг до выдачи: " + library.books.length); //Количество книг до выдачи: 4
 library.giveBookByName("Машина времени");
+const findBook = library.giveBookByName("Машина времени");
+console.log(findBook);//выдали книгу
+
+library.findBookBy("releaseDate", 1924);//"Мурзилка"
+const spoiledBook = library.findBookBy("releaseDate", 1924);
+this.state = spoiledBook;
+console.log(spoiledBook);//испортили книгу
+
+library.findBookBy(journal.name);//"Мурзилка"
+const correctedBook = library.findBookBy(journal.name);
+this.state = correctedBook;
+console.log(correctedBook);//исправили книгу
+
+library.findBookBy(journal.name);//"Мурзилка"
+const addedBook = library.findBookBy(journal.name);
+console.log(correctedBook);//добавляем починенную книгу обратно в библиотеку
+  
 console.log("Количество книг после выдачи: " + library.books.length); //Количество книг после выдачи: 3
