@@ -89,16 +89,15 @@ console.log(picknick.state); //15
 // Задача 2
 class Library {//библиотека(название, книги)
     constructor(name, books) {
-        this.name = "name";
+        this.name = name;
         this.books = [];
     }
 
     addBook(book) {//добавить книгу(книга)
-      if (this.state > 30)//состояние книги
+      if (this.state > 30)//состояние библиотеки
         this.books.push(book[i]);
       }
       
-
     findBookBy(type, value) {//найти книгу по(тип, значение)
       for (let i = 0; i < this.books.length; i++) {
         if (this.books[i][type] === value);
@@ -147,22 +146,35 @@ console.log(library.findBookBy("name", "Властелин колец")); //null
 console.log(library.findBookBy("releaseDate", 1924)); //"Мурзилка"
 
 console.log("Количество книг до выдачи: " + library.books.length); //Количество книг до выдачи: 4
-library.giveBookByName("Машина времени");
-const findBook = library.giveBookByName("Машина времени");
-console.log(findBook);//выдали книгу
 
-library.findBookBy("releaseDate", 1924);//"Мурзилка"
-const spoiledBook = library.findBookBy("releaseDate", 1924);
-this.state = spoiledBook;
-console.log(spoiledBook);//испортили книгу
+library.giveBookByName(new Library("Машина времени"));
+const booksBeforeIssuance = new Library("Машина времени");
+console.log(booksBeforeIssuance);
 
-library.findBookBy(journal.name);//"Мурзилка"
-const correctedBook = library.findBookBy(journal.name);
-this.state = correctedBook;
-console.log(correctedBook);//исправили книгу
+library.giveBookByName(new Library("Машина времени"));
+const findBook = new Library("Машина времени");
+this.books = findBook;
+console.log(findBook.books);//выдали книгу
 
-library.findBookBy(journal.name);//"Мурзилка"
-const addedBook = library.findBookBy(journal.name);
-console.log(correctedBook);//добавляем починенную книгу обратно в библиотеку
-  
+library.giveBookByName(new Library("releaseDate", 1924));
+const spoiledBook = new Library("releaseDate", 1924);
+this.books = spoiledBook;
+console.log(spoiledBook.books);//испортили книгу
+
+library.giveBookByName(new Library("Машина времени"));
+const correctedBook = new Library("Машина времени");
+this.books = correctedBook;
+console.log(correctedBook.books);//исправили книгу
+
+library.giveBookByName(new Library("Машина времени"));
+const addedBook = new Library("Машина времени");
+this.books = addedBook;
+console.log(addedBook.books);//добавляем починенную книгу обратно в библиотеку
+
 console.log("Количество книг после выдачи: " + library.books.length); //Количество книг после выдачи: 3
+library.giveBookByName(new Library("Герберт Уэллс", "Машина времени", 1895, 138));
+const booksAfterIssue = new Library("Герберт Уэллс", "Машина времени", 1895, 138);
+console.log(booksAfterIssue);
+
+
+ 
