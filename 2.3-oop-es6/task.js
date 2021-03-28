@@ -153,23 +153,19 @@ console.log(booksBeforeIssuance);
 
 library.giveBookByName(new Library("Машина времени"));
 const findBook = new Library("Машина времени");
-this.books = findBook;
-console.log(findBook.books);//выдали книгу
+console.log(findBook.book);//выдали книгу
 
 library.giveBookByName(new Library("releaseDate", 1924));
 const spoiledBook = new Library("releaseDate", 1924);
-this.books = spoiledBook;
-console.log(spoiledBook.books);//испортили книгу
+console.log(spoiledBook.book);//испортили книгу
 
 library.giveBookByName(new Library("Машина времени"));
 const correctedBook = new Library("Машина времени");
-this.books = correctedBook;
-console.log(correctedBook.books);//исправили книгу
+console.log(correctedBook.book);//исправили книгу
 
 library.giveBookByName(new Library("Машина времени"));
 const addedBook = new Library("Машина времени");
-this.books = addedBook;
-console.log(addedBook.books);//добавляем починенную книгу обратно в библиотеку
+console.log(addedBook.book);//добавляем починенную книгу обратно в библиотеку
 
 console.log("Количество книг после выдачи: " + library.books.length); //Количество книг после выдачи: 3
 library.giveBookByName(new Library("Герберт Уэллс", "Машина времени", 1895, 138));
