@@ -88,32 +88,36 @@ console.log(picknick.state); //15
 
 // Задача 2
 class Library {//библиотека(название, книги)
-    constructor(name, books) {
-        this.name = name;
-        this.books = [];
+    constructor(name) {
+      this.name = name;
+      this.books = [];
     }
-
-    addBook(book) {//добавить книгу(книга)
-      if (this.state > 30)//состояние библиотеки
-        this.books.push(book[i]);
-      }
-      
-    findBookBy(type, value) {//найти книгу по(тип, значение)
-      for (let i = 0; i < this.books.length; i++) {
-        if (this.books[i][type] === value);
+  
+  addBook(book) {//добавить книгу(книга)
+    if (book.state > 30) {
+      this.books.push(book);
+    }//состояние библиотеки
+  }
+  
+  findBookBy(type, value) {//найти книгу по(тип, значение)
+    for (let i = 0; i < this.books.length; i++) {
+      if (this.books[i][type] === value) {
         return this.books[i];
       }
-      return null;
     }
+    return null;
+  }
 
-    giveBookByName(bookName) {//выдать книгу по названию(название книги)
-      for (let i = 0; i < this.books.length; i++) {
-        if (this.books[i].name === bookName);
-        return this.books.splice(i, 1);
+  giveBookByName(bookName) {//выдать книгу по названию(название книги)
+    for (let i = 0; i < this.books.length; i++) {
+      if (this.books[i].name === bookName) {
+        return this.books.splice(i, 1)[0];
       }
-      return null;
     }
+    return null;
+  }
 }
+
 
 const library = new Library("Библиотека имени Ленина");//Создали библиотеку
 console.log(library);
